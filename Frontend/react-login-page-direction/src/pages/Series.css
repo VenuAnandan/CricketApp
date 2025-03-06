@@ -1,0 +1,21 @@
+.series-container{
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.series-table-container{
+    width: 90%;
+    height: auto;
+}
+/* td{
+    border-bottom: 1px light rgb(77, 75, 75);
+} */
+.series-table{
+    margin-top: 70px;
+}
+.tr{
+    border: 1px light rgb(77, 75, 75);
+}

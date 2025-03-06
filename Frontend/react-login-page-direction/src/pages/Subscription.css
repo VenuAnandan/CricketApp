@@ -1,0 +1,95 @@
+.color{
+    color:  rgba(17, 24, 39, 1);
+}
+.sub-head{
+    width: 90%;
+    position: relative;
+    left: 5%;
+}
+.sub-buttons{
+    margin-top: 30px;
+    width: 90%;
+    position: relative;
+    left: 5%;
+    display: flex;
+    justify-content: flex-end;
+    gap: 7px;
+}
+.sub-button{
+    width: 12%;
+    height: 40px;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+.sub-button:hover{
+    color: white;
+    background-color: rgba(17, 24, 39, 1);
+}
+.plan-main{
+    width: 90%;
+    height: auto;
+    position: relative;
+    left: 5%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+.plan-container{
+    width: 25%;
+    height: 580px;
+    margin-top: 20px;
+    border: 1px solid;
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+    border-radius: 9px;
+    background-color: rgb(247, 243, 243);
+}
+.plan-container div{
+    width: 90%;
+    height: 560px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    overflow-y: auto;
+    /* border: 1px solid; */
+}
+.plan-container div h3{
+    color: rgb(116, 113, 113);
+    margin-bottom: 0px;
+}
+.plan-container div p{
+    margin-top: 0px;
+    color: rgb(116, 113, 113);
+}
+.plan-container div h2{
+    margin-top: 10px;
+    color:  rgba(17, 24, 39, 1);
+    font-size: 3.2rem;
+}
+.list{
+    margin-top: 0px ;
+    margin-bottom: 0px;
+    border: 1px;
+    font-size: 1rem;
+}
+.plan-button{
+    position: relative;
+    left: 40%;
+    width: 60%;
+    height: 40px;
+    border-radius: 8px;
+    font-size: 1rem;
+    margin-top: auto;
+    transition: color 0.3s ease;
+}
+.plan-button:hover{
+    color: white;
+    background-color: rgba(17, 24, 39, 1);
+}
+
+

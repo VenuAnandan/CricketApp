@@ -1,0 +1,56 @@
+.rank-container{
+    width: 90%;
+    position: relative;
+    left: 5%;
+    margin-top: 10px;
+    /* border: 1px solid black; */
+}
+.buttons{
+    width: 100%;
+}
+.buttons div button{
+    width: 100px;
+    height: 30px;
+    margin: 5px 5px;
+    border: none;
+    color: white;
+    font-size: 1rem;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: rgba(17, 24, 39, 1);
+}
+.table-container {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+.table{
+    margin-top: 50px;
+    width: 80%;
+    /* border: 1px solid; */
+}
+table{
+    width: 100%;
+    text-align: center;
+    border: none;
+}
+th{
+    background-color: rgba(17, 24, 39, 1);
+    color: white;
+    height: 30px;
+    border: none;
+}
+td{
+    height: 30px;
+    border-left: none;
+    border-right: none;
+    cursor: pointer;
+}
+tr{
+    border-radius: 8px;
+}
+tr:hover{
+    background-color: rgba(17, 24, 39, 1);
+    color: white;
+}
