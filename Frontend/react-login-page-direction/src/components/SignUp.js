@@ -28,7 +28,7 @@ function SignUp() {
             alert("Enter Required");
         }
         else {
-            await fetch("http://localhost:4000/createlogin", {
+            await fetch("http://localhost:4000/createuser", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(data),

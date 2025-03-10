@@ -31,18 +31,55 @@ app.get('/login', async (req, res) => {
 })
 
 
-app.post('/createlogin', async (req, res) => {
+app.post('/getlogin', async (req, res) => {
     try {
-        await client.connect();
-        const db = client.db("Cric-Score");
-        const logincollection = db.collection("User-Login");
+
         let insertData = req.body;
-        const result = await logincollection.insertOne(insertData);
-        res.json("Successfully Created");
+        // console.log(insertData);
+
+        // const result = await logincollection.insertOne(insertData);
+        if (insertData.type === "login") {
+            await client.connect();
+            const db = client.db("Cric-Score");
+            const logincollection = db.collection("User-Login");
+            const dataset = await logincollection.find({}).toArray();
+            const condition = dataset.find((data) => data.email == insertData.email && data.password == insertData.password);
+            res.json(condition);
+            await client.close();
+        }
+        // client.close();
     } catch (error) {
         res.status(400).json(`Error is : ${error}`)
     } finally {
         if (!client.close()) {
+            await client.close();
+        }
+    }
+})
+
+app.post('/createuser', async (req, res) => {
+    try {
+        await client.connect();
+        const db = client.db("Cric-Score")
+        const logincollection = db.collection("User-Login");
+        const logindata = await logincollection.find({}).toArray();
+        const insertData = req.body;
+        const alreadyuser = logindata.find((user) => user.email == insertData.email)
+        if(alreadyuser){
+            res.json("User is Already existing...")
+        }else{
+            
+        }
+        
+        const UniqId = `id_${Date.now()}`
+        insertData["id"] = UniqId;
+        const result = await logincollection.insertOne(insertData)
+        res.json("Created Successfully");
+        await client.close();
+    } catch (error) {
+        res.status(400).json(`Error is : ${error}`)
+    } finally {
+        if(!client.close()){
             await client.close();
         }
     }
@@ -77,6 +114,24 @@ app.post('/addhomeinfo', async (req, res) => {
         insertData["id"] = UniqId;
         const result = await homecollection.insertOne(insertData);
         res.json("Successfully Added");
+        await client.close();
+    } catch (error) {
+        res.status(400).json(`Error is : ${error}`);
+    } finally {
+        if (!client.close()) {
+            await client.close();
+        }
+    }
+})
+
+app.post('/addseries', async (req, res) => {
+    try {
+        await client.connect();
+        const db = client.db("Cric-Score");
+        const seriescollection = db.collection("Series");
+        const insertData = req.body;
+        const result = await seriescollection.insertOne(insertData);
+        res.json("successfully");
         await client.close();
     } catch (error) {
         res.status(400).json(`Error is : ${error}`);
@@ -233,7 +288,7 @@ app.post('/subscriptionplan', async (req, res) => {
             const plan = plans.filter((pl) => pl.type === "month");
             res.json(plan);
             await client.close();
-        } else if(insertData.type === "year" && insertData.method === "get") {
+        } else if (insertData.type === "year" && insertData.method === "get") {
             await client.connect();
             const db = client.db("Cric-Score");
             const subscriptioncollection = db.collection("SubscriptionPlan");
@@ -241,7 +296,7 @@ app.post('/subscriptionplan', async (req, res) => {
             const plan = plans.filter((pl) => pl.type === "year");
             res.json(plan);
             await client.close();
-        } else if(insertData.type === "group" && insertData.method === "get"){
+        } else if (insertData.type === "group" && insertData.method === "get") {
             await client.connect();
             const db = client.db("Cric-Score");
             const subscriptioncollection = db.collection("SubscriptionPlan");

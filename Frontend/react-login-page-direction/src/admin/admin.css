@@ -1,0 +1,8 @@
+.header{
+    background-color: rgb(76, 76, 189);
+    color: white;
+}
+.header div p{
+    cursor: pointer;
+    
+}

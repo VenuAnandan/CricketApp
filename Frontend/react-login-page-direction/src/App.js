@@ -9,6 +9,7 @@ import Teams from './pages/Teams';
 import Ranking from './pages/Rank';
 import SignUp from './components/SignUp';
 import Subscription from './pages/Subscription';
+import Admin from './admin/admin';
 
 function App() {
   const isAuthenticated = localStorage.getItem('authentication') == 'true';
@@ -22,6 +23,7 @@ function App() {
         <Route path='/teams' element={isAuthenticated ? <Teams/> : <Navigate to="/"/>} />
         <Route path='/ranking' element={isAuthenticated ? <Ranking/> : <Navigate to="/"/>} /> 
         <Route path='/subscription' element={isAuthenticated ? <Subscription/> : <Navigate to="/"/>}/>
+        <Route path='/admin' element={isAuthenticated ? <Admin/> : <Navigate to="/"/>} />
       </Routes>
     </Router>
   );
